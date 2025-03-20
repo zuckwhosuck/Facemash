@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Facemash 2.0</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="header">
+        <h1>FACEMASH</h1>
+        <p>Were we let in for our looks? No. Will we be judged on them? Yes.</p>
+    </div>
+    <h2>Who's Hotter? Click to Choose.</h2>
+    <form method="POST" action="/vote">
+        <div class="image-container">
+            <div class="image-wrapper">
+                <button type="submit" name="winner" value="{{ images[0][0] }}">
+                    <img src="{{ url_for('static', filename='images/' + images[0][1]) }}" alt="Image 1">
+                </button>
+                <p>{{ images[0][2] }}</p>
+            </div>
+            <p>OR</p>
+            <div class="image-wrapper">
+                <button type="submit" name="winner" value="{{ images[1][0] }}">
+                    <img src="{{ url_for('static', filename='images/' + images[1][1]) }}" alt="Image 2">
+                </button>
+                <p>{{ images[1][2] }}</p>
+            </div>
+        </div>
+        <input type="hidden" name="loser" value="{{ images[1][0] }}">
+    </form>
+    <a href="/leaderboard">View Leaderboard</a>
+</body>
+</html>

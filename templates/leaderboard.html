@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaderboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>🏆 Leaderboard</h1>
+    <ul class="leaderboard">
+        {% for image in images %}
+        <li class="leaderboard-item">
+            <img src="{{ url_for('static', filename='images/' + image[0]) }}" alt="Image" width="50">
+            <span>{{ image[1] }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="/" class="go-back">Go Back</a>
+</body>
+</html>
